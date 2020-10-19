@@ -6,10 +6,30 @@ import ModalPopup from "./Components/ModalPopup";
 import Controls from "./Components/Controls";
 import TaskItems from "./Components/TaskItems";
 
-// import listOfTask from "./Model/getData";
+import listOfTask from "./Model/getData";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tasks: [],
+    };
+  }
+
+  generateData = () => {
+    localStorage.setItem("tasks", JSON.stringify(listOfTask.list));
+  };
+
+  componentWillMount = () => {
+    let tasksJSON = JSON.parse(localStorage.getItem("tasks"));
+    this.setState({
+      tasks: tasksJSON,
+    });
+  };
+
   render() {
+    let { tasks } = this.state;
+
     return (
       <div className="App">
         <div>
@@ -17,10 +37,10 @@ class App extends Component {
           <div className="container-fluid">
             <div className="row">
               {/* PANEL */}
-              <Controls />
+              <Controls generateData={this.generateData} />
 
               {/* DISPLAY */}
-              <TaskItems />
+              <TaskItems tasks={tasks} />
             </div>
           </div>
 

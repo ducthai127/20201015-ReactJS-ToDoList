@@ -5,7 +5,12 @@ import THead from "./TaskItems/THead";
 import Item from "./TaskItems/Item";
 
 class TaskItems extends Component {
+  
   render() {
+    let elmItem = this.props.tasks.map((item, index) => {
+      return <Item key={index} item={item} index={index} />;
+    });
+
     return (
       <div className="col-md-9 px-0">
         <div className="container-fluid px-0">
@@ -30,7 +35,7 @@ class TaskItems extends Component {
           <table className="table table-hover">
             <THead />
             <tbody>
-              <Item />
+              {elmItem}
             </tbody>
           </table>
         </div>

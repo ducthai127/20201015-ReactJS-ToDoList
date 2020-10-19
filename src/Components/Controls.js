@@ -20,7 +20,7 @@ class Controls extends Component {
         </div>
 
         {/* Get Task From LocalStorage */}
-        <InitializeTask />
+        <InitializeTask generateData={this.props.generateData} />
 
         {/* Add New Task */}
         <AddNewTask />
