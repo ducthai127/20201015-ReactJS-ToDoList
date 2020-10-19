@@ -19,6 +19,10 @@ class Item extends Component {
     return labelColor;
   };
 
+  handleEditing = () => {
+    this.props.editTask(this.props.item);
+  };
+
   render() {
     let { item, index } = this.props;
     // let item = this.props.item;
@@ -67,7 +71,13 @@ class Item extends Component {
           <img src="./img/user_3.jpg" className="user" alt="user" />
         </td>
         <td className="text-center">
-          <button type="button" className="btn btn-outline-primary">
+          <button
+            type="button"
+            className="btn btn-outline-primary"
+            onClick={this.handleEditing}
+            data-toggle="modal"
+            data-target="#modalTask"
+          >
             Edit
           </button>
           <button type="button" className="btn btn-outline-success">

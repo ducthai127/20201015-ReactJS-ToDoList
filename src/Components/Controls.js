@@ -23,7 +23,7 @@ class Controls extends Component {
         <InitializeTask generateData={this.props.generateData} />
 
         {/* Add New Task */}
-        <AddNewTask />
+        <AddNewTask clearBeforeAddNewTask={this.props.clearBeforeAddNewTask} />
 
         {/* Filter & Sort */}
         <div className="px-3">

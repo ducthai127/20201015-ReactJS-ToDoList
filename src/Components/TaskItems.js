@@ -8,7 +8,7 @@ class TaskItems extends Component {
   
   render() {
     let elmItem = this.props.tasks.map((item, index) => {
-      return <Item key={index} item={item} index={index} />;
+      return <Item key={index} item={item} index={index} editTask={this.props.editTask} />;
     });
 
     return (
