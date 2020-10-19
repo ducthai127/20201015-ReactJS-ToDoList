@@ -6,12 +6,10 @@ import ModalPopup from "./Components/ModalPopup";
 import Controls from "./Components/Controls";
 import TaskItems from "./Components/TaskItems";
 
-import listOfTask from "./Model/getData";
+// import listOfTask from "./Model/getData";
 
 class App extends Component {
   render() {
-    console.log(listOfTask.list);
-
     return (
       <div className="App">
         <div>
