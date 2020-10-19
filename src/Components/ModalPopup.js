@@ -1,5 +1,6 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component } from "react";
 import CheckboxGroup from "react-checkbox-group";
+var randomID = require("random-id");
 
 class ModalPopup extends Component {
   constructor(props) {
@@ -17,11 +18,13 @@ class ModalPopup extends Component {
   onChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
+      id: randomID(5, "aA0")
     });
   };
 
   onSubmit = (event) => {
     event.preventDefault();
+    this.props.addNewTask(this.state);
   };
 
   memberChanged = (newMember) => {
@@ -141,9 +144,9 @@ class ModalPopup extends Component {
               {/* Modal footer */}
               <div className="modal-footer">
                 <button
-                  type="button"
+                  type="submit"
                   className="btn btn-success"
-                  data-dismiss="modal"
+                  // data-dismiss="modal"
                 >
                   Add Task
                 </button>

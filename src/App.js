@@ -27,6 +27,15 @@ class App extends Component {
     });
   };
 
+  addNewTask = (data) => {
+    let tasksJSON = JSON.parse(localStorage.getItem("tasks"));
+    tasksJSON = [...tasksJSON, data];
+    this.setState({
+      tasks: tasksJSON
+    });
+    localStorage.setItem("tasks", JSON.stringify(tasksJSON));
+  }
+
   render() {
     let { tasks } = this.state;
 
@@ -45,7 +54,7 @@ class App extends Component {
           </div>
 
           {/* The Modal */}
-          <ModalPopup />
+          <ModalPopup addNewTask={this.addNewTask} />
         </div>
       </div>
     );
