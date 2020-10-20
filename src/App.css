@@ -1,22 +1,20 @@
-.container-fluid{
-  /* padding: 0; */
+body {
+  background-color: #001f1e;
+  color: #b9fff3;
 }
 
-/* BEGIN HEADER */
+.clr-blue {
+  color: #001f1e !important;
+}
+
+.clr-aqua {
+  color: #b9fff3 !important;
+}
+
 .header{
   width: 100%;
   height: 70px;
-  color: white;
 }
-.header--left{
-  background-color: #722ED1;
-}
-
-.header--right{
-  background-color: #616161;
-}
-/* END HEADER */
-
 
 .user{
   width: 40px;
@@ -33,7 +31,7 @@
   height: 50px;
   font-size: 20px;
   background-color: #48a521;
-  color: white;
+  color: #b9fff3;
 }
 
 .btn--initializeTask{
@@ -41,7 +39,11 @@
   height: 50px;
   font-size: 20px;
   background-color: #008B8B;
-  color: white;
+  color: #b9fff3;
+}
+
+.btn--newTask:hover, .btn--initializeTask:hover {
+  background-color: #b9fff3; color: #001f1e;
 }
 
 .filter > ul {
@@ -66,4 +68,8 @@
 
 table td, table th {
   vertical-align: middle!important;
+}
+
+.table thead th {
+  border-top-width: 2px;
 }

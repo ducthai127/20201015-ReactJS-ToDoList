@@ -60,8 +60,8 @@ class Item extends Component {
 
     return (
       <tr>
-        <td className="text-center">{index + 1}</td>
-        <td className="text-center">{item.name}</td>
+        <td className="text-center font-weight-bold">{index + 1}</td>
+        <td className="text-center font-weight-bold">{item.name}</td>
         <td className="text-center">{elmLabel}</td>
         <td className={`${classPriority} font-weight-bold text-center`}>
           {elmPriority}
@@ -70,24 +70,28 @@ class Item extends Component {
           <img src="./img/user_2.jpg" className="user" alt="user" />
           <img src="./img/user_3.jpg" className="user" alt="user" />
         </td>
+
         <td className="text-center">
+        <div className="form-group d-flex align-items-center mb-0">
           <button
             type="button"
-            className="btn btn-outline-primary"
+            className="btn btn-outline-primary mr-2"
             onClick={this.handleEditing}
             data-toggle="modal"
             data-target="#modalTask"
           >
-            Edit
+            <i className="fa fa-pencil" />
           </button>
-          <button type="button" className="btn btn-outline-success">
-            Done
-          </button>
-          <button type="button" className="btn btn-outline-danger">
-            Delete
-          </button>
+          
+          <select className="form-control font-weight-bold" id="handle" name="handle">
+            <option className="font-weight-bold" value={1}>Not Yet Started</option>
+            <option className="font-weight-bold" value={2}>In Progress</option>
+            <option className="font-weight-bold" value={3}>Done</option>
+            <option className="font-weight-bold" value={4}>Cancel</option>
+          </select>
+          </div>
         </td>
-        <td className="text-center">
+        <td className="text-center display-5 lead">
           <i className="fa fa-check-square-o mr-2" />
         </td>
       </tr>

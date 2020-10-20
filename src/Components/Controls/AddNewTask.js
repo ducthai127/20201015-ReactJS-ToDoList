@@ -10,12 +10,12 @@ class AddNewTask extends Component {
     return (
       <button
         type="button"
-        className="btn mb-3 btn--newTask"
+        className="btn mb-4 btn--newTask"
         data-toggle="modal"
         data-target="#modalTask"
         onClick={this.handleAddNewTask}
       >
-        <i className="fa fa-pencil-square-o" />
+        <i className="fa fa-plus-square mr-2" />
         Add New Task
       </button>
     );

@@ -12,7 +12,7 @@ class InitializeTask extends Component {
         className="btn my-3 btn--initializeTask"
         onClick={this.InitializeTask}
       >
-        <i className="fa fa-pencil-square-o" />
+        <i className="fa fa-cloud-download mr-2" />
         Initialize Task
       </button>
     );

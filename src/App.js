@@ -85,7 +85,7 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <h1 className="text-center my-2">TASK MANAGER</h1>
+          <h1 className="text-center my-3 font-weight-bold">TASK MANAGER</h1>
           <div className="container-fluid">
             <div className="row">
               {/* PANEL */}
