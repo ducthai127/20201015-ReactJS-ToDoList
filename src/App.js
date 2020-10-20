@@ -45,9 +45,9 @@ class App extends Component {
 
   clearBeforeAddNewTask = () => {
     this.setState({
-      isAddNewTask: true
-    })
-  }
+      isAddNewTask: true,
+    });
+  };
 
   editTask = (data) => {
     this.setState({
@@ -79,6 +79,19 @@ class App extends Component {
     }
   };
 
+  changeProgress = (id, progress) => {
+    let tasksJSON = JSON.parse(localStorage.getItem("tasks"));
+    for (let index in tasksJSON) {
+      if (tasksJSON[index].id === id) {
+        tasksJSON[index].status = progress
+      }
+    }
+    this.setState({
+      tasks: tasksJSON
+    })
+    localStorage.setItem("tasks", JSON.stringify(tasksJSON));
+  };
+
   render() {
     let { tasks, isAddNewTask, taskEditing } = this.state;
 
@@ -89,10 +102,13 @@ class App extends Component {
           <div className="container-fluid">
             <div className="row">
               {/* PANEL */}
-              <Controls generateData={this.generateData} clearBeforeAddNewTask={this.clearBeforeAddNewTask} />
+              <Controls
+                generateData={this.generateData}
+                clearBeforeAddNewTask={this.clearBeforeAddNewTask}
+              />
 
               {/* DISPLAY */}
-              <TaskItems tasks={tasks} editTask={this.editTask} />
+              <TaskItems tasks={tasks} editTask={this.editTask} changeProgress={this.changeProgress} />
             </div>
           </div>
 

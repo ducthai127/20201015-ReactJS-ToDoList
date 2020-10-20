@@ -11,7 +11,7 @@ const TasksData = [
         labelArr: ["Frontend", "Backend"],
         priority: 1,
         memberIDArr: ["user_2"],
-        status: 2,
+        status: 1,
         description: "Phải soạn ReactJS kèm với NodeJS và Redux"
     },
     {
@@ -20,7 +20,7 @@ const TasksData = [
         labelArr: ["Issue", "API"],
         priority: 2,
         memberIDArr: ["user_4", "user_5"],
-        status: 1,
+        status: 2,
         description: "Nội dung của Angular rất dài và khó"
     },
     {
@@ -29,7 +29,7 @@ const TasksData = [
         labelArr: ["API", "Backend"],
         priority: 1,
         memberIDArr: ["user_1"],
-        status: 1,
+        status: 3,
         description: "Lorem is sum"
     },
     {
@@ -38,7 +38,7 @@ const TasksData = [
         labelArr: ["Frontend", "Issue"],
         priority: 3,
         memberIDArr: ["user_3"],
-        status: 2,
+        status: 4,
         description: "Lưu ý so sánh VueJS với ReactJS và Angular"
     },
 ]

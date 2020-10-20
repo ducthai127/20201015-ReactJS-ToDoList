@@ -73,3 +73,8 @@ table td, table th {
 .table thead th {
   border-top-width: 2px;
 }
+
+.modal .modal-content {
+  background-color: #ffffff;
+  color: #001f1e;
+}

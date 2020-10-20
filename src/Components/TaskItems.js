@@ -5,10 +5,17 @@ import THead from "./TaskItems/THead";
 import Item from "./TaskItems/Item";
 
 class TaskItems extends Component {
-  
   render() {
     let elmItem = this.props.tasks.map((item, index) => {
-      return <Item key={index} item={item} index={index} editTask={this.props.editTask} />;
+      return (
+        <Item
+          key={index}
+          item={item}
+          index={index}
+          editTask={this.props.editTask}
+          changeProgress={this.props.changeProgress}
+        />
+      );
     });
 
     return (
@@ -34,9 +41,7 @@ class TaskItems extends Component {
         <div className="px-3">
           <table className="table table-hover">
             <THead />
-            <tbody>
-              {elmItem}
-            </tbody>
+            <tbody>{elmItem}</tbody>
           </table>
         </div>
       </div>

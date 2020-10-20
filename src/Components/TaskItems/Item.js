@@ -1,6 +1,27 @@
 import React, { Component } from "react";
 
 class Item extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedProgress: "",
+    };
+  }
+
+  onChange = (event) => {
+    this.setState(
+      {
+        [event.target.name]: event.target.value,
+      },
+      () => {
+        this.props.changeProgress(
+          this.props.item.id,
+          this.state.selectedProgress
+        );
+      }
+    );
+  };
+
   getLabelColor = (label) => {
     let labelColor;
     switch (label) {
@@ -70,6 +91,25 @@ class Item extends Component {
       );
     });
 
+    // progress
+    let classProgress;
+    switch (parseInt(item.status, 10)) {
+      case 1:
+        classProgress = "fa-anchor";
+        break;
+      case 2:
+        classProgress = "fa-spinner";
+        break;
+      case 3:
+        classProgress = "fa-check-square-o";
+        break;
+      case 4:
+        classProgress = "fa-ban";
+        break;
+      default:
+        break;
+    }
+
     return (
       <tr>
         <td className="text-center font-weight-bold">{index + 1}</td>
@@ -92,8 +132,8 @@ class Item extends Component {
             </button>
             <select
               className="form-control font-weight-bold"
-              id="handle"
-              name="handle"
+              name="selectedProgress"
+              onChange={this.onChange}
             >
               <option className="font-weight-bold" value={1}>
                 Not Yet Started
@@ -111,7 +151,7 @@ class Item extends Component {
           </div>
         </td>
         <td className="text-center display-5 lead">
-          <i className="fa fa-check-square-o mr-2" />
+          <i className={`fa ${classProgress} mr-2"`} />
         </td>
       </tr>
     );
