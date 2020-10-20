@@ -58,6 +58,18 @@ class Item extends Component {
         break;
     }
 
+    // member
+    let elmPerson = item.memberIDArr.map((memberID, index) => {
+      return (
+        <img
+          key={index}
+          src={`./img/${memberID}.jpg`}
+          className={`user ${memberID}`}
+          alt={memberID}
+        />
+      );
+    });
+
     return (
       <tr>
         <td className="text-center font-weight-bold">{index + 1}</td>
@@ -66,29 +78,36 @@ class Item extends Component {
         <td className={`${classPriority} font-weight-bold text-center`}>
           {elmPriority}
         </td>
+        <td className="text-center">{elmPerson}</td>
         <td className="text-center">
-          <img src="./img/user_2.jpg" className="user" alt="user" />
-          <img src="./img/user_3.jpg" className="user" alt="user" />
-        </td>
-
-        <td className="text-center">
-        <div className="form-group d-flex align-items-center mb-0">
-          <button
-            type="button"
-            className="btn btn-outline-primary mr-2"
-            onClick={this.handleEditing}
-            data-toggle="modal"
-            data-target="#modalTask"
-          >
-            <i className="fa fa-pencil" />
-          </button>
-          
-          <select className="form-control font-weight-bold" id="handle" name="handle">
-            <option className="font-weight-bold" value={1}>Not Yet Started</option>
-            <option className="font-weight-bold" value={2}>In Progress</option>
-            <option className="font-weight-bold" value={3}>Done</option>
-            <option className="font-weight-bold" value={4}>Cancel</option>
-          </select>
+          <div className="form-group d-flex align-items-center mb-0">
+            <button
+              type="button"
+              className="btn btn-outline-primary mr-2"
+              onClick={this.handleEditing}
+              data-toggle="modal"
+              data-target="#modalTask"
+            >
+              <i className="fa fa-pencil" />
+            </button>
+            <select
+              className="form-control font-weight-bold"
+              id="handle"
+              name="handle"
+            >
+              <option className="font-weight-bold" value={1}>
+                Not Yet Started
+              </option>
+              <option className="font-weight-bold" value={2}>
+                In Progress
+              </option>
+              <option className="font-weight-bold" value={3}>
+                Done
+              </option>
+              <option className="font-weight-bold" value={4}>
+                Cancel
+              </option>
+            </select>
           </div>
         </td>
         <td className="text-center display-5 lead">

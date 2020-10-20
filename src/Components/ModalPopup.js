@@ -127,7 +127,7 @@ class ModalPopup extends Component {
                   {(Checkbox) => (
                     <>
                       {" "}
-                      Person:
+                      Member:
                       <br />
                       <label className="mr-3">
                         <Checkbox value="user_2" /> Tuan

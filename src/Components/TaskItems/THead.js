@@ -9,7 +9,7 @@ class THead extends Component {
                 <th className="text-center font-weight-bold display-5 lead">Task</th>
                 <th className="text-center font-weight-bold display-5 lead">Label</th>
                 <th className="text-center font-weight-bold display-5 lead">Priority</th>
-                <th className="text-center font-weight-bold display-5 lead">Person</th>
+                <th className="text-center font-weight-bold display-5 lead">Member</th>
                 <th className="text-center font-weight-bold display-5 lead">Handle</th>
                 <th className="text-center font-weight-bold display-5 lead">Status</th>
               </tr>
