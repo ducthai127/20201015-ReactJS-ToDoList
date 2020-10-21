@@ -13,7 +13,7 @@ class Controls extends Component {
     return (
       <div className="col-md-3 text-center px-0">
         <div className="header header--left d-flex align-items-center">
-          <img src="./img/user_5.jpg" className="ml-2 user" alt="user" />
+          <img src="./img/user_1.jpg" className="ml-2 user" alt="user" />
           <h3 className="font-weight-bold d-inline font-weight-light ml-2">
             Nguyen Duc Thai
           </h3>
