@@ -22,6 +22,9 @@ class App extends Component {
       filterType: "",
       filterProgress: -1,
       filterSearch: "",
+
+      // sort
+      sortType: "",
     };
   }
 
@@ -111,6 +114,13 @@ class App extends Component {
     })
   }
 
+  changeSortType = (sortType) => {
+    this.setState({
+      filterType: "sort",
+      sortType: sortType
+    })
+  }
+
   render() {
     let {
       tasks,
@@ -118,7 +128,8 @@ class App extends Component {
       taskEditing,
       filterType,
       filterProgress,
-      filterSearch
+      filterSearch,
+      sortType
     } = this.state;
 
     return (
@@ -132,6 +143,7 @@ class App extends Component {
                 generateData={this.generateData}
                 clearBeforeAddNewTask={this.clearBeforeAddNewTask}
                 changeFilterProgress={this.changeFilterProgress}
+                changeSortType={this.changeSortType}
               />
 
               {/* DISPLAY */}
@@ -143,6 +155,7 @@ class App extends Component {
                 filterProgress={filterProgress}
                 changeFilterSearch={this.changeFilterSearch}
                 filterSearch={filterSearch}
+                sortType={sortType}
               />
             </div>
           </div>

@@ -7,25 +7,29 @@ import Search from "./TaskItems/Search";
 
 class TaskItems extends Component {
   render() {
-    let { tasks, filterType, filterProgress } = this.props;
-    let filterTask = [];
+    let { tasks, filterType, filterProgress, sortType } = this.props;
+    let filterTasks = [];
     switch (filterType) {
+      case "filterSearch":
+        filterTasks = tasks.filter((task) => {
+          return (
+            task.name
+              .toLowerCase()
+              .indexOf(this.props.filterSearch.toLowerCase()) !== -1
+          );
+        });
+        break;
+
       case "filterProgress":
         if (filterProgress === -1) {
-          filterTask = tasks;
+          filterTasks = tasks;
         } else {
           for (let task of tasks) {
             if (parseInt(task.status, 10) === filterProgress) {
-              filterTask = [...filterTask, task];
+              filterTasks = [...filterTasks, task];
             }
           }
         }
-        break;
-        
-      case "filterSearch":
-        filterTask = tasks.filter((task) => {
-          return task.name.toLowerCase().indexOf(this.props.filterSearch.toLowerCase()) !== -1;
-        });
         break;
 
       case "filterLabel":
@@ -34,12 +38,32 @@ class TaskItems extends Component {
       case "filterPriority":
         break;
 
+      case "sort":
+        filterTasks = tasks;
+        if(sortType === "asc") {
+          filterTasks.sort((a, b) => {
+            let x = a.name.toLowerCase(), y = b.name.toLowerCase();
+            if(x < y) {return -1;}
+            if(x > y) {return 1;}
+            return 0
+          })
+        }
+        if(sortType === "desc") {
+          filterTasks.sort((a, b) => {
+            let x = a.name.toLowerCase(), y = b.name.toLowerCase();
+            if(x > y) {return -1;}
+            if(x < y) {return 1;}
+            return 0
+          })
+        }
+        break;
+
       default:
-        filterTask = tasks;
+        filterTasks = tasks;
         break;
     }
 
-    let elmItem = filterTask.map((item, index) => {
+    let elmItem = filterTasks.map((item, index) => {
       return (
         <Item
           key={index}

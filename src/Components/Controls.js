@@ -37,7 +37,7 @@ class Controls extends Component {
           <FilterPriority />
 
           {/* Sort */}
-          <Sort />
+          <Sort changeSortType={this.props.changeSortType} />
         </div>
       </div>
     );
