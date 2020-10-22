@@ -6,7 +6,33 @@ import Item from "./TaskItems/Item";
 
 class TaskItems extends Component {
   render() {
-    let elmItem = this.props.tasks.map((item, index) => {
+    let { tasks, filterType, filterProgress } = this.props;
+    let filterTask = [];
+    switch (filterType) {
+      case "filterProgress":
+        if (filterProgress === -1) {
+          filterTask = tasks;
+        } else {
+          for (let task of tasks) {
+            if (parseInt(task.status, 10) === filterProgress) {
+              filterTask = [...filterTask, task];
+            }
+          }
+        }
+        break;
+
+      case "filterLabel":
+        break;
+
+      case "filterPriority":
+        break;
+
+      default:
+        filterTask = tasks;
+        break;
+    }
+
+    let elmItem = filterTask.map((item, index) => {
       return (
         <Item
           key={index}

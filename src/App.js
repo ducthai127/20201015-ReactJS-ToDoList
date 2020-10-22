@@ -17,6 +17,10 @@ class App extends Component {
       tasks: [],
       isAddNewTask: true,
       taskEditing: null,
+
+      // filter
+      filterType: "",
+      filterProgress: -1,
     };
   }
 
@@ -83,17 +87,30 @@ class App extends Component {
     let tasksJSON = JSON.parse(localStorage.getItem("tasks"));
     for (let index in tasksJSON) {
       if (tasksJSON[index].id === id) {
-        tasksJSON[index].status = progress
+        tasksJSON[index].status = progress;
       }
     }
     this.setState({
-      tasks: tasksJSON
-    })
+      tasks: tasksJSON,
+    });
     localStorage.setItem("tasks", JSON.stringify(tasksJSON));
   };
 
+  changeFilterProgress = (filterProgress) => {
+    this.setState({
+      filterType: "filterProgress",
+      filterProgress: filterProgress,
+    });
+  };
+
   render() {
-    let { tasks, isAddNewTask, taskEditing } = this.state;
+    let {
+      tasks,
+      isAddNewTask,
+      taskEditing,
+      filterType,
+      filterProgress,
+    } = this.state;
 
     return (
       <div className="App">
@@ -105,10 +122,17 @@ class App extends Component {
               <Controls
                 generateData={this.generateData}
                 clearBeforeAddNewTask={this.clearBeforeAddNewTask}
+                changeFilterProgress={this.changeFilterProgress}
               />
 
               {/* DISPLAY */}
-              <TaskItems tasks={tasks} editTask={this.editTask} changeProgress={this.changeProgress} />
+              <TaskItems
+                tasks={tasks}
+                editTask={this.editTask}
+                changeProgress={this.changeProgress}
+                filterType={filterType}
+                filterProgress={filterProgress}
+              />
             </div>
           </div>
 

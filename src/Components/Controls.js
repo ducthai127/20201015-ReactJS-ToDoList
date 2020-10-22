@@ -28,7 +28,7 @@ class Controls extends Component {
         {/* Filter & Sort */}
         <div className="px-3">
           {/* FilterProgress */}
-          <FilterProgress />
+          <FilterProgress changeFilterProgress={this.props.changeFilterProgress} />
 
           {/* FilterLabel */}
           <FilterLabel />
