@@ -21,6 +21,7 @@ class App extends Component {
       // filter
       filterType: "",
       filterProgress: -1,
+      filterSearch: "",
     };
   }
 
@@ -103,6 +104,13 @@ class App extends Component {
     });
   };
 
+  changeFilterSearch = (filterSearch) => {
+    this.setState({
+      filterType: "filterSearch",
+      filterSearch: filterSearch,
+    })
+  }
+
   render() {
     let {
       tasks,
@@ -110,6 +118,7 @@ class App extends Component {
       taskEditing,
       filterType,
       filterProgress,
+      filterSearch
     } = this.state;
 
     return (
@@ -132,6 +141,8 @@ class App extends Component {
                 changeProgress={this.changeProgress}
                 filterType={filterType}
                 filterProgress={filterProgress}
+                changeFilterSearch={this.changeFilterSearch}
+                filterSearch={filterSearch}
               />
             </div>
           </div>

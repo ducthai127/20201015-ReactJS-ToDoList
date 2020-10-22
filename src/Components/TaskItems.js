@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // import components
 import THead from "./TaskItems/THead";
 import Item from "./TaskItems/Item";
+import Search from "./TaskItems/Search";
 
 class TaskItems extends Component {
   render() {
@@ -19,6 +20,12 @@ class TaskItems extends Component {
             }
           }
         }
+        break;
+        
+      case "filterSearch":
+        filterTask = tasks.filter((task) => {
+          return task.name.toLowerCase().indexOf(this.props.filterSearch.toLowerCase()) !== -1;
+        });
         break;
 
       case "filterLabel":
@@ -54,13 +61,7 @@ class TaskItems extends Component {
               </div>
             </div>
             <div className="col-md-6">
-              <div className="form-group text-left my-0">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Search..."
-                />
-              </div>
+              <Search changeFilterSearch={this.props.changeFilterSearch} />
             </div>
           </div>
         </div>
