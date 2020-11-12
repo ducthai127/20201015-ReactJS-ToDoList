@@ -11,3 +11,9 @@ export const initializeTasks = () => {
     type: types.INITIALIZE_TASKS,
   };
 };
+export const addTask = (newTask) => {
+  return {
+    type: types.ADD_TASK,
+    newTask: newTask,
+  };
+};

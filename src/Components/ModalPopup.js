@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import CheckboxGroup from "react-checkbox-group";
+import { connect } from "react-redux";
+import * as actions from "../Actions/index";
 
 class ModalPopup extends Component {
   constructor(props) {
@@ -10,6 +12,7 @@ class ModalPopup extends Component {
       priority: "",
       labelArr: [],
       memberIDArr: [],
+      status: 1,
       description: "",
     };
   }
@@ -22,8 +25,9 @@ class ModalPopup extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    this.props.addNewTask(this.state);
-    this.props.onEditTask(this.state);
+    // this.props.addNewTask(this.state);
+    // this.props.onEditTask(this.state);
+    this.props.addTask(this.state);
   };
 
   memberChanged = (newMember) => {
@@ -197,4 +201,16 @@ class ModalPopup extends Component {
   }
 }
 
-export default ModalPopup;
+const mapStateToProps = () => {
+  return {};
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addTask: (newTask) => {
+      dispatch(actions.addTask(newTask));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ModalPopup);

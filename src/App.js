@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
-import randomID from "random-id";
-
+import Controls from "./Components/Controls";
 // import components
 import ModalPopup from "./Components/ModalPopup";
-import Controls from "./Components/Controls";
 import TaskItems from "./Components/TaskItems";
-
-import listOfTask from "./Model/getData";
 
 class App extends Component {
   constructor(props) {
@@ -34,17 +30,17 @@ class App extends Component {
     });
   };
 
-  addNewTask = (data) => {
-    if (this.state.isAddNewTask) {
-      data.id = randomID(5, "aA0");
-      let tasksJSON = JSON.parse(localStorage.getItem("tasks"));
-      tasksJSON = [...tasksJSON, data];
-      this.setState({
-        tasks: tasksJSON,
-      });
-      localStorage.setItem("tasks", JSON.stringify(tasksJSON));
-    }
-  };
+  // addNewTask = (data) => {
+  //   if (this.state.isAddNewTask) {
+  //     data.id = randomID(5, "aA0");
+  //     let tasksJSON = JSON.parse(localStorage.getItem("tasks"));
+  //     tasksJSON = [...tasksJSON, data];
+  //     this.setState({
+  //       tasks: tasksJSON,
+  //     });
+  //     localStorage.setItem("tasks", JSON.stringify(tasksJSON));
+  //   }
+  // };
 
   clearBeforeAddNewTask = () => {
     this.setState({
@@ -156,7 +152,7 @@ class App extends Component {
 
           {/* The Modal */}
           <ModalPopup
-            addNewTask={this.addNewTask}
+            // addNewTask={this.addNewTask}
             isAddNewTask={isAddNewTask}
             taskEditing={taskEditing}
             onEditTask={this.onEditTask}
