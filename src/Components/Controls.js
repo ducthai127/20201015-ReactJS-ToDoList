@@ -20,7 +20,7 @@ class Controls extends Component {
         </div>
 
         {/* Get Task From LocalStorage */}
-        <InitializeTask generateData={this.props.generateData} />
+        <InitializeTask />
 
         {/* Add New Task */}
         <AddNewTask clearBeforeAddNewTask={this.props.clearBeforeAddNewTask} />
@@ -28,7 +28,9 @@ class Controls extends Component {
         {/* Filter & Sort */}
         <div className="px-3">
           {/* FilterProgress */}
-          <FilterProgress changeFilterProgress={this.props.changeFilterProgress} />
+          <FilterProgress
+            changeFilterProgress={this.props.changeFilterProgress}
+          />
 
           {/* FilterLabel */}
           <FilterLabel />

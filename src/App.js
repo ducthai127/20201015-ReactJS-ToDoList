@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-// var randomID = require("random-id");
 import randomID from "random-id";
 
 // import components
@@ -27,10 +26,6 @@ class App extends Component {
       sortType: "",
     };
   }
-
-  generateData = () => {
-    localStorage.setItem("tasks", JSON.stringify(listOfTask.list));
-  };
 
   componentWillMount = () => {
     let tasksJSON = JSON.parse(localStorage.getItem("tasks"));
@@ -111,15 +106,15 @@ class App extends Component {
     this.setState({
       filterType: "filterSearch",
       filterSearch: filterSearch,
-    })
-  }
+    });
+  };
 
   changeSortType = (sortType) => {
     this.setState({
       filterType: "sort",
-      sortType: sortType
-    })
-  }
+      sortType: sortType,
+    });
+  };
 
   render() {
     let {
@@ -129,7 +124,7 @@ class App extends Component {
       filterType,
       filterProgress,
       filterSearch,
-      sortType
+      sortType,
     } = this.state;
 
     return (
@@ -140,7 +135,6 @@ class App extends Component {
             <div className="row">
               {/* PANEL */}
               <Controls
-                generateData={this.generateData}
                 clearBeforeAddNewTask={this.clearBeforeAddNewTask}
                 changeFilterProgress={this.changeFilterProgress}
                 changeSortType={this.changeSortType}

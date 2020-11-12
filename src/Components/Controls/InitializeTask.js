@@ -1,16 +1,14 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../Actions/index";
 
 class InitializeTask extends Component {
-  InitializeTask = () => {
-    this.props.generateData();
-  };
-
   render() {
     return (
       <button
         type="button"
         className="btn my-3 btn--initializeTask"
-        onClick={this.InitializeTask}
+        onClick={this.props.initializeTasks}
       >
         <i className="fa fa-cloud-download mr-2" />
         Initialize Task
@@ -19,4 +17,12 @@ class InitializeTask extends Component {
   }
 }
 
-export default InitializeTask;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    initializeTasks: () => {
+      dispatch(actions.initializeTasks());
+    },
+  };
+};
+
+export default connect(null, mapDispatchToProps)(InitializeTask);
